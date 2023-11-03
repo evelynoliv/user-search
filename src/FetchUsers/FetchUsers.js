@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { BASE_URL } from './constants/urls'
+import { BASE_URL } from '../constants/urls'
+import './FetchUsers.css'
 
 const FetchUsers = () => {
     const [users, setUsers] = useState([])
@@ -20,7 +21,7 @@ const FetchUsers = () => {
     return (
         <div>
             <h1>Users</h1>
-            <section>
+            <section className="main-section">
                 {users.map((user) => {
 
                     const { gender,
@@ -37,11 +38,12 @@ const FetchUsers = () => {
                             <img src={large} alt={first} />
 
                             <h3>
-                                {title}. {first} {last} {gender}
+                                {title}. {first} {last}
                             </h3>
+                            <p>{gender}</p>
                             <p>{date}</p>
 
-                            <p>{age}</p>
+                            <p>{age} Years</p>
 
                         </div>
                     )

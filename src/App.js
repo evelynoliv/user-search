@@ -1,5 +1,5 @@
 import './App.css';
-import FetchUsers from './FetchUsers';
+import FetchUsers from './FetchUsers/FetchUsers';
 
 function App() {
   return (
