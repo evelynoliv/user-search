@@ -22,24 +22,27 @@ const FetchUsers = () => {
             <h1>Users</h1>
             <section>
                 {users.map((user) => {
-                    
+
                     const { gender,
-                        name: {
-                            title,
-                            first,
-                            last 
-                        },
-                        dob: {
-                            age
-                        },
-                        registered: {
-                            date
-                        },
+                        name: { title, first, last },
+                        dob: { age, date },
+                        // registered: { date },
+                        picture: { large },
+                        email,
+                        login: { uuid, username }
                     } = user
+
                     return (
-                        <div key={user.login.uuid}>
-                            <h3>{user.login.uuid} {title}. {first} {last} {gender} {age} {date}
+                        <div key={uuid}>
+                            <img src={large} alt={first} />
+
+                            <h3>
+                                {title}. {first} {last} {gender}
                             </h3>
+                            <p>{date}</p>
+
+                            <p>{age}</p>
+
                         </div>
                     )
                 }
