@@ -1,10 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
+import router from './routes/router';
 import './App.css';
-import FetchUsers from './FetchUsers/FetchUsers';
 
 function App() {
   return (
     <div>
-      <FetchUsers />
+      <RouterProvider router={router} />
 
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BASE_URL } from '../constants/urls'
+import { BASE_URL } from '../../constants/urls'
 import './FetchUsers.css'
 
 const FetchUsers = () => {
@@ -20,7 +20,10 @@ const FetchUsers = () => {
 
     return (
         <div>
-            <h1>Users</h1>
+            <h1>List Users</h1>
+
+            <input></input>
+            
             <section className="main-section">
                 {users.map((user) => {
 
