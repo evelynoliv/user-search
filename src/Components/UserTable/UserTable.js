@@ -19,6 +19,8 @@ const UserTable = () => {
  };
 
  return (
+  <div><h1> List Users</h1>
+  
     <table>
       <thead>
         <tr>
@@ -47,6 +49,7 @@ const UserTable = () => {
         ))}
       </tbody>
     </table>
+    </div>
  );
 };
 
