@@ -1,17 +1,17 @@
 import {createBrowserRouter} from "react-router-dom"
-import FetchUsers from "../Components/FetchUsers/FetchUsers"
-import UserList from "../Components/UserList/UserList"
+import FetchUsers from "../Components/UserTable/UserTable"
+import UserTable from "../Components/UserTable/UserTable"
 
 const router = createBrowserRouter(
 
     [
         {
-        path:"/",
-        element: <UserList />,
+        path:"/home",
+        element: <UserTable />,
         },
 
         {
-            path:"/pegar",
+            path:"/usuarios",
             element: <FetchUsers />,
             }
     ]
