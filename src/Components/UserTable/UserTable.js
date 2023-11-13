@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './UserTable.css';
+import Header from '../Header/Header';
 
 const UserTable = () => {
  const [users, setUsers] = useState([]);
@@ -19,7 +20,8 @@ const UserTable = () => {
  };
 
  return (
-  <div><h1> List Users</h1>
+  <div>
+    <Header />
   
     <table>
       <thead>
