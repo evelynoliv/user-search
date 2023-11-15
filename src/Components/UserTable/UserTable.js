@@ -25,6 +25,14 @@ const UserTable = () => {
       `${user.name.first} ${user.name.last}`.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const locale = 'pt-BR';
+
+  const options = {
+    month: 'numeric',
+    day: 'numeric',
+    year: 'numeric',
+  };
+
   return (
     <div>
       <div>
@@ -58,7 +66,7 @@ const UserTable = () => {
               <td>{user.name.first}</td>
               <td>{user.name.last}</td>
               <td>{user.name.title}</td>
-              <td>{user.dob.date}</td>
+              <td>{new Date(user.dob.date).toLocaleDateString(locale, options)}</td>
               <td>{user.dob.age}</td>
               <td>
                 <button>View profile</button>
