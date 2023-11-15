@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
+import { BASE_URL } from '../../constants/urls';
 import './UserTable.css';
-
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchUsers();
@@ -12,27 +12,32 @@ const UserTable = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('https://randomuser.me/api/?results=10');
+      const response = await fetch(`${BASE_URL}?results=10`);
       const data = await response.json();
       setUsers(data.results);
     } catch (error) {
       console.error('Error fetching users:', error);
-
     }
   };
+
+  const filteredUsers = users.filter(
+    (user) =>
+      `${user.name.first} ${user.name.last}`.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
       <div>
         <h1>List Users</h1>
-        <form class="search-bar">
+        <form className="search-bar">
           <input
             type="text"
-            placeholder="Search user..." />
-
+            placeholder="Search user..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </form>
       </div>
-      
 
       <table>
         <thead>
@@ -47,7 +52,7 @@ const UserTable = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <tr key={user.login.uuid}>
               <td>{user.login.uuid}</td>
               <td>{user.name.first}</td>
