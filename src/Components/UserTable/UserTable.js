@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BASE_URL } from '../../constants/urls';
 import './UserTable.css';
+import Pagination from '../Pagination/Pagination';
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
@@ -73,9 +74,14 @@ const UserTable = () => {
               </td>
             </tr>
           ))}
+      <Pagination />
         </tbody>
+        
       </table>
+      
     </div>
+    
+    
   );
 };
 
